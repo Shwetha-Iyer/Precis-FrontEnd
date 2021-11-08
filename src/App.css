@@ -36,3 +36,96 @@
     transform: rotate(360deg);
   }
 }
+
+.background{
+  background-color: linear-gradient(to right,#ba69e9, rgb(129, 9, 209));
+  min-height:100vh;
+  overflow: auto;
+  color:white;
+}
+
+.header{
+  font-size: 40px;
+  color:white;
+  font-weight: 500;
+  font-family: 'PT Serif', serif;
+}
+
+
+
+.btn-mybutton{
+  border: 2px solid white;
+  font-size:20px;
+  color: white;
+}
+
+.align-right{
+  float:right;
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.custom-toggler.navbar-toggler {
+  border-color: white;
+}
+ul {
+  list-style: none;
+}
+
+.card-form{
+  border-radius:20px;
+  margin: 0 auto;
+  width:80%;
+  height: 120%;
+  border: 2px solid white;
+}
+.textmuted{
+  color: white;
+}
+
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heading{
+  font-size: 43px;
+}
+
+hr{
+  border:1px solid white;
+}
+
+.card{
+  color:black;
+  border-radius:20px;
+}
+
+.table{
+  width:90%;
+  margin-left: auto;
+  margin-right:auto;
+}
+
+.table-striped>tbody>tr:nth-child(even)>td, 
+.table-striped>tbody>tr:nth-child(even)>th {
+   background-color: rgb(221, 192, 238)
+ }
+ table.table-bordered{
+  border:1px solid #9639cc;
+  margin-top:20px;
+}
+table.table-bordered > thead > tr > th{
+  border:1px solid #9639cc;
+}
+table.table-bordered > tbody > tr > td{
+  border:1px solid #9639cc;
+}
+thead{
+  background-color: #9639cc;
+  border: 2px solid #9639cc;
+  color:white;
+}
