@@ -28,7 +28,7 @@ export default function Forgot(){
                         // same shape as initial values
                         setClick(1);
                         console.log(values);
-                        axios.put("http://localhost:3100/auth/forgot",{email:values.email},{
+                        axios.put("https://precis-backend.herokuapp.com/auth/forgot",{email:values.email},{
                             headers:{
                                 'Content-Type': 'application/json'
                             },

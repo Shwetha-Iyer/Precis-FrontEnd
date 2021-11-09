@@ -19,7 +19,7 @@ export default function Dashboard(){
     let [click,setClick] = useState(0);
     let [linkdata, setLinkdata] = useState([]);
     let handlelogout = ()=>{
-        axios.delete("http://localhost:3100/auth/logout",{
+        axios.delete("https://precis-backend.herokuapp.com/auth/logout",{
             headers:{
               'Content-Type': 'application/json'
             },
@@ -37,7 +37,7 @@ export default function Dashboard(){
           });
       }
     useEffect(()=>{
-        axios.get("http://localhost:3100/auth/authchecker",{
+        axios.get("https://precis-backend.herokuapp.com/auth/authchecker",{
           headers:{
             'Content-Type': 'application/json'
           },
@@ -48,7 +48,7 @@ export default function Dashboard(){
           if(res.status===200){
             console.log("Logged in");
             //data.setUserid(res.data.sessUser.id);
-            axios.get(`http://localhost:3100/users/getdetails/${res.data.sessUser.email}`,{
+            axios.get(`https://precis-backend.herokuapp.com/users/getdetails/${res.data.sessUser.email}`,{
                 eaders:{
                     'Content-Type': 'application/json'
                   },
@@ -71,7 +71,7 @@ export default function Dashboard(){
         });
     },[history]);
     let updateClicks = (short_url)=>{
-        axios.post("http://localhost:3100/users/updateclicks",{email:info.email,short_url},{
+        axios.post("https://precis-backend.herokuapp.com/users/updateclicks",{email:info.email,short_url},{
           headers:{
             'Content-Type': 'application/json'
           },
@@ -121,7 +121,7 @@ export default function Dashboard(){
                         // same shape as initial values
                         setClick(1);
                         console.log(values);
-                        axios.post("http://localhost:3100/users/createurl",{
+                        axios.post("https://precis-backend.herokuapp.com/users/createurl",{
                             email:info.email,
                             url:values.url,
                         },{
@@ -161,7 +161,7 @@ export default function Dashboard(){
                     <div className="col-sm-4 py-3">
                         <div className="card px-4 h-100">
                             <h4 className="pt-3">URLs created So far..</h4>
-                            <h1 className="py-5">{info.links.length}</h1>
+                            <h1 className="py-5">{/*info.links.length*/} {linkdata.length}</h1>
                         </div>
                     </div>
                 </div>
@@ -172,7 +172,7 @@ export default function Dashboard(){
                             <div className="table-responsive">
                                 <h3 className="pt-4"> Your URLs</h3>
                                 {
-                                    info.links.length>0?
+                                    linkdata.length>0?
                                     <table className="table table-bordered table-striped my-4">
                             <thead>
                                 <tr>
@@ -188,7 +188,7 @@ export default function Dashboard(){
                                         return <tr key={index}>
                                             <td>{index+1}</td>
                                             <td>{items.original_url}</td>
-                                            <td><a rel="noreferrer" href={items.short_url} target="_blank" onClick={()=>{updateClicks(items.short_url)}}>{items.short_url}</a></td>
+                                            <td><a rel="noreferrer" href={items.original_url} target="_blank" onClick={()=>{updateClicks(items.short_url)}}>{items.short_url}</a></td>
                                             <td>{items.clicks}</td>
                                         </tr>
                                     })

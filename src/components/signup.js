@@ -30,7 +30,7 @@ export default function Signup(){
     let history = useHistory();
     let [click,setClick] = useState(0);
     useEffect(()=>{
-        axios.get("http://localhost:3100/auth/authchecker",{
+        axios.get("https://precis-backend.herokuapp.com/auth/authchecker",{
           headers:{
             'Content-Type': 'application/json'
           },
@@ -67,7 +67,7 @@ export default function Signup(){
                         // same shape as initial values
                         setClick(1);
                         console.log(values);
-                        axios.post("http://localhost:3100/auth/register",{
+                        axios.post("https://precis-backend.herokuapp.com/auth/register",{
                             firstname:values.firstName,
                             lastname:values.lastName,
                             email:values.email,
